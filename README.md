@@ -21,3 +21,11 @@ request('https://example.com', proxyOptions, function(error, response, body) {
   }
 });
 ```
+
+## TIL
+
+- in linux to append to a file instead of overwrite contents
+
+```console
+cmd >> file
+```
