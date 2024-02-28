@@ -9,12 +9,16 @@ const proxyOptions = {
 }
 
 // Function to make a GET request to an API
-function callApi(url) {
+function callApi(url, proxyOptions = {}) {
+    const startT = Date.now();
     return new Promise((resolve, reject) => {
-        request(url, (error, response, body) => {
+        request(url,proxyOptions, (error, response, body) => {
             if (error) {
                 reject(error);
             } else {
+                const endTime = Date.now();
+                const elapsed = endTime - startT;
+                console.log(`API call to ${url} took ${elapsed} milliseconds`);
                 resolve(body);
             }
         });
